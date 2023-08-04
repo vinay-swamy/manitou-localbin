@@ -1,0 +1,5 @@
+#!/bin/bash
+export XDG_RUNTIME_DIR="/pmglocal/vss2134/tmp/"
+PYTHON_BIN=`which python`
+export QUARTO_PYTHON=$PYTHON_BIN
+$HOME/quarto-1.4.268/bin/quarto "$@"

@@ -1,0 +1,6 @@
+#!/bin/bash 
+declare -a nodelist=(m001 m002 m003 m004 m005 m006 m007 m008 m009 m010 m011 m012 m013)
+for node in "${nodelist[@]}"
+do 
+    echo "sbatch --account pmg --nodelist $node $@" 
+done

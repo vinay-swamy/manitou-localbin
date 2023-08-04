@@ -1,0 +1,5 @@
+#!/bin/bash 
+export PORT=9091
+inst="ssh -t -t  $USER@128.59.124.102  -L 7071:127.0.0.1:8081 ssh $HOSTNAME -L 8081:127.0.0.1:9091"
+echo $inst 
+jupyter lab --no-browser --port $PORT --LabApp.token=''

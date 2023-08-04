@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sbatch --nodelist=m001 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m002 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m003 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m004 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m005 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m006 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m007 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m008 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m009 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m010 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m011 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m012 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"
+sbatch --nodelist=m013 -A pmg --wrap "find /pmglocal/vss2134/ -name '*.ckpt' -delete"

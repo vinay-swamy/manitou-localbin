@@ -1,0 +1,15 @@
+#!/bin/bash 
+if [ -z "$1" ]
+then
+    echo "No argument supplied"
+    exit
+fi
+
+declare -a nodelist=(m002 m003 m004 m005 m006 m007 m008 m009 m010 m011 m012)
+outstr="Node\tUsed\tdisk"
+for node in "${nodelist[@]}"
+do 
+        resp=`srun --time 00:01:00 --mem 4 --cpus-per-task 1 -A pmg --nodelist=$node  du -sh /pmglocal/$1 | head -n1`
+        outstr="$outstr\n$node\t$resp"
+done
+echo -e "$outstr"

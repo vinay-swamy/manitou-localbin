@@ -1,0 +1,12 @@
+#!/bin/bash
+echo -e "Node\tStatus\tFreeGPU\tFreeCPU\tFreeMem"
+pestat -G | tail -n+4 | while read line
+do
+  node=$(echo "$line" | awk '{print $1}')
+  status=$(echo $line | tr -s ' ' | cut -d ' ' -f 3 )
+  gpu_usage=$(echo "$line" | grep -o 'gpu=[0-9]*' | awk -F'=' '{sum+=$2} END{print 8-sum}')
+  cpus_avail=$(echo $line | tr -s ' ' | awk -F" " '{sum=192-$4} END {print sum}')
+  freemem=$(echo $line| tr -s ' ' | awk -F" " '{sum=$8/1000} END {print sum"G"}')
+  echo -e "${node}\t${status}\t${gpu_usage}\t${cpus_avail}\t${freemem}"
+  outstr="${outstr}\n"
+done

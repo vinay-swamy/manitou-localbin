@@ -1,0 +1,13 @@
+if [ -z "$1" ]
+then
+    echo "No argument supplied"
+    exit
+fi
+
+declare -a nodelist=(m002 m003 m004 m005 m006 m007 m008 m009 m010 m011 m012)
+
+for node in "${nodelist[@]}"
+do 
+     sbatch --account pmg --nodelist $node --wrap "rm -rf /pmglocal/vss2134/$1/*"
+ 
+done 
