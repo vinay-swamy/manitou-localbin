@@ -1,4 +1,4 @@
 #!/bin/bash
-echo -e "User\tJobID\tNode\tJobName\tPartition\tState\tTime\tReqMem\tReqCPUS\tGPU\n" > ~/queueinfo.txt
-sacct --allusers  --state R --format=User,JobID,nodelist,Jobname%30,partition,state,time,ReqMem,ReqCPUS,ReqTRES%-42 | tail -n+3 |tr -s " " | sed "s/^ //g" - | tr  " " "\t" | awk '{$NF=gensub(/.*gpu=([0-9]+).*/, "gpu=\\1", 1, $NF)}1'| awk '$1 !~ /\./' |sed "s/billing.*//" >> ~/queueinfo.txt
-cat ~/queueinfo.txt | column -t
+echo -e "User\tJobID\tNode\tJobName\tPartition\tState\tTime\tReqMem\tReqCPU\tReqGPU\n" > ~/.allqueueinfo.txt
+sacct --allusers  --state R --format=User,JobID,nodelist,Jobname%30,partition,state,time,ReqMem,ReqCPUS,ReqTRES%-42 | tail -n+3 |tr -s " " | sed "s/^ //g" - | tr  " " "\t" | awk '{$NF=gensub(/.*gpu=([0-9]+).*/, "\\1", 1, $NF)}1'| awk '$1 !~ /\./' |sed "s/billing.*/0/" >> ~/.allqueueinfo.txt
+cat ~/.allqueueinfo.txt | column -t
